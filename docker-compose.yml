@@ -10,31 +10,17 @@ services:
     hostname: 'localhost'
     restart: "no"
     tty: true
-    working_dir: /app
+    working_dir: /usr/www/app/src/modules/
     environment:
       NG_CLI_ANALYTICS: "false"
     ports:
       - "4800:4800"
     volumes:
-      - ./module:/usr/src/app/src/modules/public
+      - ./module:/usr/www/app/src/modules/public
     #command: sh -c "/tmp/submodules.sh"
     networks:
       - app-network
       
-  nginx-server:
-    image: nginx:alpine
-    container_name: nginx-server
-    restart: "no"
-    tty: true
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-    depends_on:
-      - 'angular-ui'
-    networks:
-      - app-network
 #Docker networks
 networks:
   app-network:
