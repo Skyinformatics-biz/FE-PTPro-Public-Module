@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit, AfterViewChecked, AfterViewInit 
   ];
 
   private userType: any = ["Jeg søker helsehjelp eller en personlig trener", "Jeg er en personlig trener eller Instagram modell"];
-  private MembershipValue: string;
+  public MembershipValue: string;
 
   PTMembership: any[] = [
     { value: 'Announce', viewValue: 'Annonse: 6 Mnd. gratis premium medlemskap' },
@@ -35,14 +35,14 @@ export class SignupComponent implements OnInit, AfterViewChecked, AfterViewInit 
     // { value: 'Premium', viewValue: 'Premium medlemskap / 99 NOK Måned' }
   ];
 
-  private MembershipPackage = "Premium";
+  public MembershipPackage = "Premium";
 
   Region: string;
   City: string;
 
 
 
-  constructor(private _formBuilder: FormBuilder, private router: Router, private session: SessionService) {
+  constructor(private _formBuilder: FormBuilder, private router: Router, public session: SessionService) {
 
   }
 
